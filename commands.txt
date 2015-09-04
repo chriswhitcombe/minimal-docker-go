@@ -1,0 +1,6 @@
+kc create -f 01-httpshutdown-controller.json
+kc create -f 01-httpshutdown-service.json
+kc scale rc httpshutdown-controller-1 --replicas=4
+kc rolling-update httpshutdown-controller-1 -f 02-httpshutdown-controller.json --update-period=10s
+kc delete -f 01-httpshutdown-controller.json
+kc delete -f 01-httpshutdown-service.json

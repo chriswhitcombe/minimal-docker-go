@@ -6,7 +6,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hi there from kubernetes!")
+	fmt.Fprint(w, "Hi there from kubernetes v2!")
 }
 
 func main() {

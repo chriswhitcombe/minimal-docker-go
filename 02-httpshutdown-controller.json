@@ -1,0 +1,36 @@
+{
+   "kind":"ReplicationController",
+   "apiVersion":"v1",
+   "id":"httpshutdown-controller-2",
+   "metadata":{
+      "name":"httpshutdown-controller-2"
+   },
+   "spec":{
+      "replicas":10,
+      "selector":{
+         "app":"httpshutdown-app",
+         "version":"v2"
+      },
+      "template":{
+         "metadata":{
+            "labels":{
+               "app":"httpshutdown-app",
+               "version":"v2"
+            }
+         },
+         "spec":{
+            "containers":[
+               {
+                  "name":"httpshutdown-container",
+                  "image":"192.168.59.103:5000/httpshutdown:latest",
+                  "ports":[
+                     {
+                        "containerPort":80
+                     }
+                  ]
+               }
+            ]
+         }
+      }
+   }
+}
